@@ -14,10 +14,11 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: transparent !important;
-            /* Tambahkan !important */
             font-size: 14px;
-            overflow: hidden;
+            overflow-y: auto;   /* ✅ allow vertical scroll */
+            -webkit-overflow-scrolling: touch; /* ✅ smooth scrolling on iOS */
         }
+
 
         body::before {
             content: none !important;
