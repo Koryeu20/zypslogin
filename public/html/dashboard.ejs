@@ -40,39 +40,9 @@
         </select>
       </div>
 
-      <div>
-        <label class="block text-sm mb-1">Server</label>
-        <select id="serverSelect" name="port"
-                class="w-full p-2 rounded bg-gray-700 border border-gray-600">
-          <option value="">Loading servers...</option>
-        </select>
-      </div>
-
       <button type="submit" class="btn w-full">Login</button>
     </form>
   </div>
 
-  <script>
-    // Fetch servers from backend API
-    async function loadServers() {
-      try {
-        const res = await fetch("/api/servers");
-        const servers = await res.json();
-        const select = document.getElementById("serverSelect");
-        select.innerHTML = "";
-        servers.forEach(s => {
-          const opt = document.createElement("option");
-          opt.value = s.port;
-          opt.textContent = `${s.name} (${s.port})`;
-          select.appendChild(opt);
-        });
-      } catch (err) {
-        console.error("Failed to load servers:", err);
-        document.getElementById("serverSelect").innerHTML =
-          '<option value="">Error loading servers</option>';
-      }
-    }
-    loadServers();
-  </script>
 </body>
 </html>
